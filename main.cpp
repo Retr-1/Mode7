@@ -25,7 +25,7 @@ public:
 	bool OnUserCreate() override
 	{
 		// Called once at the start, so create things here
-		mode7.floor = new olc::Sprite("track.jpg");
+		mode7.floor = new olc::Sprite("track_wide.jpg");
 		mode7.roof = new olc::Sprite("sky.jpg");
 		return true;
 	}
@@ -35,7 +35,7 @@ public:
 		// Called once per frame, draws random coloured pixels
 		//std::cout << mode7.floor->width<<' '<<mode7.roof->width<<'\n';
 		if (GetKey(olc::W).bHeld) {
-			player.pos += olc::vf2d(cosf(player.angle) * fElapsedTime*10, sinf(player.angle) * fElapsedTime*10);
+			player.pos += olc::vf2d(cosf(player.angle) * fElapsedTime*30, sinf(player.angle) * fElapsedTime*30);
 		}
 		if (GetKey(olc::A).bHeld) {
 			player.angle -= fElapsedTime;

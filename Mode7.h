@@ -23,9 +23,13 @@ public:
 			for (int x = 0; x < canvas.ScreenWidth(); x++) {
 				float sampleWidth = x / (float)canvas.ScreenHeight();
 				olc::vf2d samplePos = (xpos2 - xpos1) * sampleWidth + xpos1;
+
 				
 				if (floor) {
-					canvas.Draw(x, y+hScrn, floor->GetPixel(samplePos));
+					olc::vi2d p = samplePos;
+					p.x %= floor->width;
+					p.y %= floor->height;
+					canvas.Draw(x, y+hScrn, floor->GetPixel(p));
 				}
 
 				if (roof) {
