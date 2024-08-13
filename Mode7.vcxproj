@@ -130,7 +130,12 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Mode7.h" />
     <ClInclude Include="olcPixelGameEngine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="sky.jpg" />
+    <Image Include="track.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
