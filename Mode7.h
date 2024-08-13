@@ -25,7 +25,7 @@ public:
 				olc::vf2d samplePos = (xpos2 - xpos1) * sampleWidth + xpos1;
 				
 				if (floor) {
-					canvas.Draw(x, y, floor->GetPixel(samplePos));
+					canvas.Draw(x, y+hScrn, floor->GetPixel(samplePos));
 				}
 
 				if (roof) {
