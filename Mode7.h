@@ -18,9 +18,9 @@ public:
 
 		float hScrn = canvas.ScreenHeight() / 2;
 		for (int y = 0; y < hScrn; y++) {
-			float sampleDepth = y / hScrn;
-			olc::vf2d xpos1 = (far1 - near1) / sampleDepth + near1;
-			olc::vf2d xpos2 = (far2 - near2) / sampleDepth + near2;
+			float sampleDepth = 1-y / hScrn;
+			olc::vf2d xpos1 = (far1 - near1) * sampleDepth*sampleDepth + near1;
+			olc::vf2d xpos2 = (far2 - near2) * sampleDepth*sampleDepth + near2;
 			for (int x = 0; x < canvas.ScreenWidth(); x++) {
 				float sampleWidth = x / (float)canvas.ScreenHeight();
 				olc::vf2d samplePos = (xpos2 - xpos1) * sampleWidth + xpos1;

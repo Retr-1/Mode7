@@ -15,7 +15,7 @@ class Window : public olc::PixelGameEngine
 	Player player;
 
 public:
-	Window() : mode7(nullptr, nullptr, 1, 0.1, 3.1415/4)
+	Window() : mode7(nullptr, nullptr, 10, 1, 3.1415/4)
 	{
 		// Name your application
 		sAppName = "Window";
