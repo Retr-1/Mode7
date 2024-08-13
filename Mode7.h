@@ -8,6 +8,7 @@ public:
 	float fFar;
 	float fNear;
 	float halfFov;
+	bool repeatTexture = false;
 
 	void draw(olc::PixelGameEngine& canvas, const olc::vf2d& pos, float angle) {
 		olc::vf2d near1 = { pos.x + cosf(angle - halfFov) * fNear, pos.y + sinf(angle - halfFov) * fNear };
@@ -26,14 +27,27 @@ public:
 
 				
 				if (floor) {
-					olc::vi2d p = samplePos;
-					p.x %= floor->width;
-					p.y %= floor->height;
-					canvas.Draw(x, y+hScrn, floor->GetPixel(p));
+					if (repeatTexture) {
+						olc::vi2d p = samplePos;
+						p.x %= floor->width;
+						p.y %= floor->height;
+						canvas.Draw(x, y + hScrn, floor->GetPixel(p));
+					}
+					else {
+						canvas.Draw(x, y + hScrn, floor->GetPixel(samplePos));
+					}
 				}
 
 				if (roof) {
-					canvas.Draw(x, y, roof->GetPixel(samplePos));
+					if (repeatTexture) {
+						olc::vi2d p = samplePos;
+						p.x %= roof->width;
+						p.y %= roof->height;
+						canvas.Draw(x, y, roof->GetPixel(p));
+					}
+					else {
+						canvas.Draw(x, y, roof->GetPixel(samplePos));
+					}
 				}
 			}
 		}

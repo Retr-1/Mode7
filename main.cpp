@@ -27,6 +27,7 @@ public:
 		// Called once at the start, so create things here
 		mode7.floor = new olc::Sprite("track_wide.jpg");
 		mode7.roof = new olc::Sprite("sky.jpg");
+		mode7.repeatTexture = true;
 		return true;
 	}
 
