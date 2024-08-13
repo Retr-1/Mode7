@@ -35,13 +35,13 @@ public:
 		// Called once per frame, draws random coloured pixels
 		//std::cout << mode7.floor->width<<' '<<mode7.roof->width<<'\n';
 		if (GetKey(olc::W).bHeld) {
-			player.pos += olc::vf2d(cosf(player.angle) * fElapsedTime, sinf(player.angle) * fElapsedTime);
+			player.pos += olc::vf2d(cosf(player.angle) * fElapsedTime*10, sinf(player.angle) * fElapsedTime*10);
 		}
 		if (GetKey(olc::A).bHeld) {
-			player.angle += fElapsedTime;
+			player.angle -= fElapsedTime;
 		}
 		if (GetKey(olc::D).bHeld) {
-			player.angle -= fElapsedTime;
+			player.angle += fElapsedTime;
 		}
 		if (GetKey(olc::E).bHeld) {
 			mode7.halfFov -= fElapsedTime;
@@ -53,13 +53,13 @@ public:
 			mode7.fNear += fElapsedTime*10;
 		}
 		if (GetKey(olc::T).bHeld) {
-			mode7.fNear -= fElapsedTime;
+			mode7.fNear -= fElapsedTime*10;
 		}
 		if (GetKey(olc::F).bHeld) {
-			mode7.fFar += fElapsedTime;
+			mode7.fFar += fElapsedTime*10;
 		}
 		if (GetKey(olc::G).bHeld) {
-			mode7.fNear -= fElapsedTime;
+			mode7.fFar -= fElapsedTime*10;
 		}
 
 		mode7.draw(*this, player.pos, player.angle);
